@@ -38,13 +38,11 @@ public class HackAssembler {
             if (command == AssemblyFileParser.commandType.C_INSTRUCTION ||
             command == AssemblyFileParser.commandType.A_INSTRUCTION){
                 codeLineNo++;
-                debugPrint("lineUP!");
 
             } else if (command == AssemblyFileParser.commandType.L_INSTRUCTION){
 //                codeLineNo++;
                 String label = parser.symbol();
                 symbolTable.addJumpLabel(label, codeLineNo);
-                debugPrint("lineUP!");
             }
         }
     }
