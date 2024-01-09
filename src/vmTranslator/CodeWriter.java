@@ -215,7 +215,7 @@ public class CodeWriter {
     }
 
     public void writeIf(String label) throws IOException {
-        String ifAssemblyCode = "" +
+        String ifAssemblyCode =
                 "@0\n" +
                 "AM=M-1\n" +
                 "D=M\n" +

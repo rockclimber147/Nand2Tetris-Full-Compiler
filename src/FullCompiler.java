@@ -102,8 +102,12 @@ public class FullCompiler {
                     assemblyCodeWriter.writeAsComment(currentLine);
                     if (vmCodeParser.isValidCommand(currentLine)){
                         currentLineIsACommand = true;
-                    } else {
+                    } else if (vmCodeParser.hasMoreLines()){
                         vmCodeParser.advance();
+                    } else {
+                        assemblyCodeWriter.close();
+                        System.out.println("End of file");
+                        return;
                     }
                 }
 
@@ -131,8 +135,6 @@ public class FullCompiler {
                 // Advance when command is written
                 vmCodeParser.advance();
             }
-            //At the end of the file write some blank space
-            assemblyCodeWriter.writeBlankSpace();
         }
 
         assemblyCodeWriter.close();

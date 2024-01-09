@@ -57,9 +57,13 @@ public class CodeTable {
         cTable.put("A-D", "0000111");
         cTable.put("M-D", "1000111");
         cTable.put("D&A", "0000000");
+        cTable.put("A&D", "0000000");
         cTable.put("D&M", "1000000");
+        cTable.put("M&D", "1000000");
         cTable.put("D|A", "0010101");
+        cTable.put("A|D", "0010101");
         cTable.put("D|M", "1010101");
+        cTable.put("M|D", "1010101");
     }
 
     public String comp(String c){

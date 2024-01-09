@@ -13,6 +13,7 @@ public class VMWriter {
     }
 
     public void close() throws IOException {
+        vmWriter.write("// end");
         vmWriter.close();
     }
 

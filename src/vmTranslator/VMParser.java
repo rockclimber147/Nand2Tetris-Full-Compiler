@@ -65,17 +65,8 @@ public class VMParser {
     } // Check for EOF
 
     public void advance(){
-
-        // System.out.println("Searching for commands");
-
-//        boolean continueSearch = true; // Set flag for when valid command is found
-//        while (this.hasMoreLines() && continueSearch){
-//            currentLine = parser.nextLine().trim(); // Load in next line, removing whitespace
-//            if (this.isValidCommand(currentLine)){
-//                continueSearch = false; // Stop searching when valid command found
-//            }
-//        }
         currentLine = parser.nextLine().strip();
+        boolean hasNext = parser.hasNextLine();
     }
 
     public boolean isValidCommand(String line){
