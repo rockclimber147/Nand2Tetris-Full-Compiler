@@ -10,8 +10,8 @@ import vmTranslator.*;
 import hackAssembler.*;
 
 public class FullCompiler {
-    private String inputDirectory;
-    private String outputDirectory;
+    private final String inputDirectory;
+    private final String outputDirectory;
     private String fileName;
 
     public FullCompiler(String inputDirectory, String outputDirectory){
@@ -32,9 +32,9 @@ public class FullCompiler {
             new File(outputDirectory + fileName + "\\asm").mkdirs();
             new File(outputDirectory + fileName + "\\hack").mkdirs();
             compileInputDirectory(toTranslate);
+            translateVMDirectory();
+            translateASMDirectory();
         }
-        translateVMDirectory();
-        translateASMDirectory();
     }
     public void compileInputDirectory(File toTranslate) throws IOException {
             File[] filesList; // for use with CompilationEngine
@@ -53,7 +53,6 @@ public class FullCompiler {
                 FileFilter jackFiles = (file) -> (file.getName().endsWith(".jack"));
                 filesList = toTranslate.listFiles(jackFiles);
 
-                FileFilter xmlFiles = (file) -> (file.getName().endsWith(".xml"));
 
             } else {
                 filesList = new File[]{toTranslate};
