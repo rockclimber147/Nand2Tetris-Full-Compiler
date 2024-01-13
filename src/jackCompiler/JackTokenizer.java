@@ -67,7 +67,7 @@ public class JackTokenizer {
                 }
                 step();
                 skipWhiteSpace();
-                //vmWriter.write(currentToken.toString());
+                vmWriter.write(currentToken.toString());
                 currentToken.delete(0, currentToken.length());
             } else if (currentChar == '/' && nextChar == '*') {
                 while (currentChar != '*' || nextChar != '/') {
@@ -76,7 +76,7 @@ public class JackTokenizer {
                 step();
                 step();
                 skipWhiteSpace();
-                vmWriter.write(currentToken.toString());
+                vmWriter.write(currentToken.toString() + "\n");
                 currentToken.delete(0, currentToken.length());
             } else if (currentChar == '"') {
                 // Handle string constants
