@@ -1,0 +1,56 @@
+/* Declare field variables */
+/*
+FIELD  int x -> this     0
+FIELD  int y -> this     1
+*/
+/* set x to an arbitrary expression */
+    
+function Test.new 0
+/*
+ARG    int Ax -> argument 0
+ARG    int Ay -> argument 1
+ARG    int Az -> argument 2
+*/
+    push constant 2
+    call Memory.alloc 1
+    pop pointer 0
+    push constant 3
+    push constant 2
+    push argument 0
+    sub
+    call Math.multiply 2
+    push argument 2
+    add
+    pop this 0
+/* set y to the second argument */
+    push argument 1
+    pop this 1
+/* constructors must return the instance they constructed */
+    push pointer 0
+    return
+/* returns the sum of the field variables */
+    
+function Test.getSum 0
+/*
+ARG    Test this -> argument 0
+*/
+    push argument 0
+    pop pointer 0
+    push this 0
+    push this 1
+    add
+    return
+/* Sets the x field variable */
+    
+function Test.setX 0
+/*
+ARG    Test this -> argument 0
+ARG    int  newX -> argument 1
+*/
+    push argument 0
+    pop pointer 0
+    push argument 1
+    pop this 0
+    push constant 0
+    return
+// end

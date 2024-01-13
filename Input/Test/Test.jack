@@ -1,0 +1,28 @@
+class Test {
+    /* Declare field variables */
+    field int x;
+    field int y;
+
+    constructor Test new(int Ax, int Ay, int Az) {
+
+        /* set x to an arbitrary expression */
+        let x = (3 * (2 - Ax)) + Az;
+
+        /* set y to the second argument */
+        let y = Ay;
+
+        /* constructors must return the instance they constructed */
+        return this;
+    }
+
+    /* returns the sum of the field variables */
+    method int getSum(){
+        return x + y;
+    }
+
+    /* Sets the x field variable */
+    method void setX(int newX){
+        let x = newX;
+        return;
+    }
+}
